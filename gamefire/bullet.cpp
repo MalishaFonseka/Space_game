@@ -48,13 +48,13 @@ void bullet::move(){
 
     }
 
-//     //bullet is removed when it disappears from the screen for memory mannemgent
-//     setPos(x(),y()-10);
-//      if(pos().y() <0){
-//          scene()->removeItem(this);
-//          delete this;
+     //bullet is removed when it disappears from the screen for memory mannemgent
+     setPos(x(),y()-10);
+      if(pos().y() <0){
+          scene()->removeItem(this);
+          delete this;
 
-//      }
+      }
 
 
 }
