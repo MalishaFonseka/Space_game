@@ -20,6 +20,7 @@ public slots:
     void medispawn();
     void destroyenemy();
     void ammomagCatched();
+    void Catched();
     void medipackCatched();
 private:
     QMediaPlayer * bulletsound;

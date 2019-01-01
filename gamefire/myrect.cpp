@@ -132,6 +132,11 @@ void myrect::ammomagCatched(){
 
 }
 
+void myrect::Catched()
+{
+
+}
+
 
 void myrect::spawn()
 {
