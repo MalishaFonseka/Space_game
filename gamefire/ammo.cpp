@@ -16,7 +16,6 @@ ammo::ammo(QGraphicsItem *parent) : QGraphicsTextItem (parent)
     //Set text font,color,size of the ammo count displayed
     setDefaultTextColor(Qt::blue);
     setPlainText(QString("Ammo :")+QString::number(Ammo)+QString("/100"));
-
     setFont(QFont("times",12));
 
 }
@@ -34,7 +33,7 @@ void ammo::checkAmmoCount(){
          setPlainText(QString("Ammo :")+QString::number(Ammo)+QString("/100"));
    }else {
 
-        //pop up
+        //Message box is created
         QMessageBox msgBox;
         msgBox.setWindowTitle("Game over");
         msgBox.setText("Ammo finished.Do you like to replay?");
@@ -45,16 +44,17 @@ void ammo::checkAmmoCount(){
         switch (msgBox.exec()) {
 
                 case QMessageBox::Yes:{
+                //will re-start the game if yes is pressed
                 QApplication::quit();
                 QProcess::startDetached(qApp->arguments()[0],qApp->arguments());
                 break;
 
                 }
-        case QMessageBox::No:{
-
-                QApplication::quit();
-                break;
-        }
+                case QMessageBox::No:{
+                //will quit the application if no is  pressed
+                        QApplication::quit();
+                        break;
+                }
 
         }
 }
@@ -64,17 +64,20 @@ void ammo::checkAmmoCount(){
 
 void ammo::decreaseAmmo()
 {
+     //Reduce ammo count by one
      Ammo=Ammo-1;
      checkAmmoCount();
 }
 
 void ammo::increaseAmmo()
 {
+    //Increase ammo by 10
     Ammo = Ammo+10;
     checkAmmoCount();
 }
 
 int ammo::getAmmo()
 {
+    //return ammo
     return Ammo;
 }
