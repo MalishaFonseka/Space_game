@@ -21,8 +21,8 @@ enemy::enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
     //Enemy image is set
     setPixmap(QPixmap(":/images/enemyship_1.jpg"));
 
+    //Enemy is connected with the move function
     QTimer * timer = new QTimer(this);
-
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 }
@@ -32,7 +32,7 @@ void enemy::move()
 
     setPos(x(),y()+5);
 
-    //remove the enemies who passes the border(Y axis value>600 pixels)
+    //remove the enemies who moves away from the screen
     if(pos().y() >600){
       Player_health->decrease();
       scene()->removeItem(this);

@@ -17,19 +17,27 @@ score::score(QGraphicsItem *parent) : QGraphicsTextItem (parent)
 }
 
 
-void score::marksevaluator(){
+void score::marksevaluator()
+{
+
     //condition to change the color of the text based on the score
-    if(playerscore>0&&playerscore<100){
+    if(playerscore>0&&playerscore<100)
+    {
      setDefaultTextColor(Qt::white);
      setPlainText(QString("Score :")+QString::number(playerscore)+QString("/300"));
-    }else if(playerscore>100&&playerscore<200){
+    }else if(playerscore>100&&playerscore<200)
+    {
         setDefaultTextColor(Qt::yellow);
         setPlainText(QString("Score :")+QString::number(playerscore)+QString("/300"));
-    }else if(playerscore>200&&playerscore<=300){
+    }else if(playerscore>200&&playerscore<=300)
+    {
         setDefaultTextColor(Qt::green);
         setPlainText(QString("Score :")+QString::number(playerscore)+QString("/300"));
 
-    }else if(playerscore>300){
+    }else if(playerscore>300)
+    {
+
+        //Message box is displayed if the player wins
         QMessageBox msgBox;
         msgBox.setWindowTitle("Game finish");
         msgBox.setText("Congratulations!!!\n You have won the game\n Want to play again?");
@@ -37,21 +45,21 @@ void score::marksevaluator(){
         msgBox.addButton(QMessageBox::No);
         msgBox.setDefaultButton(QMessageBox::No);
 
-        switch (msgBox.exec()) {
-
-                case QMessageBox::Yes:{
+        switch (msgBox.exec())
+        {
+            case QMessageBox::Yes:
+            {
+                //Wil restart if 'yes' is pressed
                 QApplication::quit();
                 QProcess::startDetached(qApp->arguments()[0],qApp->arguments());
                 break;
-
-                }
-        case QMessageBox::No:{
-
+            }
+             case QMessageBox::No:{
+                //will quit the game if 'no' is pressed
                 QApplication::quit();
                 break;
-        }
-
-        }
+             }
+         }
     }
 }
 
@@ -64,13 +72,13 @@ void score::increase()
 
 void score::decrease()
 {
-      //decreases the player's score from 5
+    //decreases the player's score from 5
     playerscore=playerscore-5;
     marksevaluator();
 }
 
 int score::getscore()
 {
-      //ireturns the score
+    //ireturns the score
     return playerscore;
 }

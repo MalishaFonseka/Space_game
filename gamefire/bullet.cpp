@@ -11,9 +11,10 @@ extern ammo * player_ammo;
 
 bullet::bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
-    //image of bullet
+    //image of bullet is added
     setPixmap(QPixmap(":/images/bullet_2.jpg"));
 
+    //Connecting bullet with move function
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
@@ -31,9 +32,8 @@ void bullet::move(){
     //loop to iterate
     for(int i=0,n=colliding_Items.size();i<n;++i){
 
-        //players ammo is reduced in every move
+        //players ammo is reduced when move function is called
         player_ammo->decreaseAmmo();
-
 
 
         if (typeid(*(colliding_Items[i])) == typeid(enemy)){
@@ -41,7 +41,7 @@ void bullet::move(){
             //players score is incremented when bullet hits an enemy
             Player_score->increase();
 
-            //remove the colliding enemy and the respective bullet
+            //remove colliding enemy and the respective bullet
             scene()->removeItem(colliding_Items[i]);
             scene()->removeItem(this);
             delete colliding_Items[i];

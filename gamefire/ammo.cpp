@@ -41,21 +41,22 @@ void ammo::checkAmmoCount(){
         msgBox.addButton(QMessageBox::No);
         msgBox.setDefaultButton(QMessageBox::No);
 
-        switch (msgBox.exec()) {
-
-                case QMessageBox::Yes:{
+        switch (msgBox.exec())
+        {
+                case QMessageBox::Yes:
+                {
                 //will re-start the game if yes is pressed
                 QApplication::quit();
                 QProcess::startDetached(qApp->arguments()[0],qApp->arguments());
                 break;
 
                 }
-                case QMessageBox::No:{
+                case QMessageBox::No:
+                {
                 //will quit the application if no is  pressed
                         QApplication::quit();
                         break;
                 }
-
         }
 }
 

@@ -52,19 +52,16 @@ int main(int argc, char *argv[])
 
     view->show();
 
-
-
-  //  scene->addItem(player);
-
-
+    //Score is added to the scene
     Player_score = new score();
     scene->addItem(Player_score);
 
+    //health is added to the screen and positioned
     Player_health = new health();
     Player_health->setPos(Player_health->x(),Player_health->y()+25);
     scene->addItem(Player_health);
 
-
+    //ammo is added to the screen and positioned
     player_ammo = new ammo();
     player_ammo->setPos(player_ammo->x(),player_ammo->y()+50);
     scene->addItem(player_ammo);

@@ -15,7 +15,6 @@ health::health(QGraphicsItem *parent) : QGraphicsTextItem (parent)
     //font settings of health dislpayed on screen is set
     setDefaultTextColor(Qt::blue);
     setPlainText(QString("Health :")+QString::number(playerHealth)+QString("/100"));
-
     setFont(QFont("times",12));
 
 }

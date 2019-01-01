@@ -10,6 +10,8 @@
 #include "ammo.h"
 #include <QDebug>
 
+
+//using global vairables
 extern health * Player_health;
 extern  score * Player_score;
 extern ammo * player_ammo;
@@ -20,7 +22,7 @@ myrect::myrect(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
     bulletsound = new QMediaPlayer();
     bulletsound->setMedia(QUrl("qrc:/sounds/380_gunshot_single-mike-koenig.mp3"));
 
-    //player's image is added
+    //Rocket image is added
     setPixmap(QPixmap(":/images/rocket_2.jpg"));
 }
 

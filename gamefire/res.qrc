@@ -4,7 +4,6 @@
         <file>alien-spaceship_daniel_simion.mp3</file>
     </qresource>
     <qresource prefix="/images">
-        <file>PurpleStars.gif</file>
         <file>rocket_2.jpg</file>
         <file>bullet_2.jpg</file>
         <file>medipack_1.jpg</file>
