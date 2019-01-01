@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>380_gunshot_single-mike-koenig.mp3</file>
+        <file>alien-spaceship_daniel_simion.mp3</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>PurpleStars.gif</file>
+        <file>rocket_2.jpg</file>
+        <file>bullet_2.jpg</file>
+        <file>medipack_1.jpg</file>
+        <file>magazine_1.jpg</file>
+        <file>enemyship_1.jpg</file>
+    </qresource>
+</RCC>
