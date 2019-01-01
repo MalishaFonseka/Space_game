@@ -14,6 +14,8 @@
 #include "ammo.h"
 #include "ammomag.h"
 
+
+//Dcelaration of global objects
 score * Player_score;
 health * Player_health;
 ammo * player_ammo;
@@ -22,34 +24,38 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    //Creating a scenes
     QGraphicsScene * scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
+
+    //Background image is set up
     scene->setBackgroundBrush(QBrush(QImage(":/images/PurpleStars.gif")));
 
+    //player object from myrect is created and added to the scene
     myrect * player = new myrect();
-   // player->setRect(0,0,100,100);
-
     scene->addItem(player);
 
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-
-
-    QGraphicsView * view = new QGraphicsView(scene);
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
-
-
-    view->show();
-
-    view->setFixedSize(800,600);
-    scene->setSceneRect(0,0,800,600);
-
     player->setPos(400,500);
     player->setFocus();
 
-    scene->addItem(player);
+
+    //creating a view
+    QGraphicsView * view = new QGraphicsView(scene);
+    view->setFixedSize(800,600);
+    scene->setSceneRect(0,0,800,600);
+
+    //Removal of scroll bars
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    view->show();
+
+
+
+  //  scene->addItem(player);
+
 
     Player_score = new score();
     scene->addItem(Player_score);
@@ -64,25 +70,33 @@ int main(int argc, char *argv[])
     scene->addItem(player_ammo);
 
 
+    //Creating the alien
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
 
+    //creating the medipack
     QTimer * medipacktimer = new QTimer();
     QObject::connect(medipacktimer,SIGNAL(timeout()),player,SLOT(medispawn()));
     medipacktimer->start(10000);
 
+    //creating the magazine
     QTimer * ammomagtimer = new QTimer();
     QObject::connect(ammomagtimer,SIGNAL(timeout()),player,SLOT(magspawn()));
     ammomagtimer->start(11000);
 
 
+    //Background music is added
     QMediaPlaylist *playlist = new QMediaPlaylist();
     playlist->addMedia(QUrl("qrc:/sounds/alien-spaceship_daniel_simion.mp3"));
+    //background music is repeated
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
+    //background music is played
     QMediaPlayer *music = new QMediaPlayer();
     music->setPlaylist(playlist);
     music->play();
+
+
     return a.exec();
 }
