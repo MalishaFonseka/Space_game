@@ -34,8 +34,7 @@ SOURCES += \
     health.cpp \
     medipack.cpp \
     ammo.cpp \
-    ammomag.cpp \
-    level.cpp
+    ammomag.cpp
 
 HEADERS += \
     myrect.h \
@@ -45,8 +44,7 @@ HEADERS += \
     health.h \
     medipack.h \
     ammo.h \
-    ammomag.h \
-    level.h
+    ammomag.h
 
 FORMS +=
 
