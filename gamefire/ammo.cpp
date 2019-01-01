@@ -10,8 +10,10 @@
 
 ammo::ammo(QGraphicsItem *parent) : QGraphicsTextItem (parent)
 {
-
+    //Initialize ammo count
     Ammo  =100;
+
+    //Set text font,color,size of the ammo count displayed
     setDefaultTextColor(Qt::blue);
     setPlainText(QString("Ammo :")+QString::number(Ammo)+QString("/100"));
 
@@ -20,6 +22,8 @@ ammo::ammo(QGraphicsItem *parent) : QGraphicsTextItem (parent)
 }
 
 void ammo::checkAmmoCount(){
+
+    //condition to check the the amount of ammo to change the color of ammo amount displayed
     if(Ammo>70){
         setPlainText(QString("Ammo :")+QString::number(Ammo)+QString("/100"));
     }else if(Ammo>30){
@@ -29,6 +33,8 @@ void ammo::checkAmmoCount(){
         setDefaultTextColor(Qt::red);
          setPlainText(QString("Ammo :")+QString::number(Ammo)+QString("/100"));
    }else {
+
+        //pop up
         QMessageBox msgBox;
         msgBox.setWindowTitle("Game over");
         msgBox.setText("Ammo finished.Do you like to replay?");
