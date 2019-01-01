@@ -60,7 +60,6 @@ void ammo::checkAmmoCount(){
         }
 }
 
-
 }
 
 void ammo::decreaseAmmo()

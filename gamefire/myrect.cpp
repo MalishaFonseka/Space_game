@@ -57,13 +57,7 @@ void myrect::keyPressEvent(QKeyEvent *event)
             bulletsound->play();
 
         }
-
-
-
     }
-
-
-
 }
 
 void myrect::destroyenemy(){
